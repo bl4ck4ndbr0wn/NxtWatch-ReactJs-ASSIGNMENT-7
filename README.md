@@ -1,6 +1,6 @@
 In this assignment let's build an **Nxt Watch** by applying the concepts we have learned till now.
 
-### Refer to videos below:
+### Refer to videos below
 
 **Success View** <br/>
 
@@ -161,8 +161,28 @@ In this assignment let's build an **Nxt Watch** by applying the concepts we have
 <details>
 <summary>Click to view</summary>
 
+##### Environment Variables
+
+Before running the app, create a `.env` file in the root directory with the following variables:
+
+```env
+REACT_APP_GOOGLE_CLIENT_ID=your_google_client_id_here
+```
+
+To get a Google Client ID:
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com)
+2. Create a new project or select an existing one
+3. Enable the Google+ API
+4. Go to Credentials
+5. Create an OAuth 2.0 Client ID
+6. Add your application's domain to the authorized origins
+7. Copy the Client ID and paste it in your .env file
+
+Next
 - Download dependencies by running `npm install`
 - Start up the app using `npm start`
+
 </details>
 
 ### Completion Instructions
@@ -292,7 +312,7 @@ The app must have the following functionalities
 
 #### Method: `POST`
 
-#### Description:
+#### Description
 
 Returns a response containing the jwt_token
 
@@ -319,7 +339,7 @@ Returns a response containing the jwt_token
 
 #### Method: `GET`
 
-#### Description:
+#### Description
 
 Returns a response containing the list of all videos
 
@@ -351,7 +371,7 @@ Returns a response containing the list of all videos
 
 #### Method: `GET`
 
-#### Description:
+#### Description
 
 Returns a response containing the list of trending videos
 
@@ -383,7 +403,7 @@ Returns a response containing the list of trending videos
 
 #### Method: `GET`
 
-#### Description:
+#### Description
 
 Returns a response containing the list of gaming videos
 
@@ -412,7 +432,7 @@ Returns a response containing the list of gaming videos
 
 #### Method: `GET`
 
-#### Description:
+#### Description
 
 Returns a response containing the list of gaming videos
 

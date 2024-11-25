@@ -1,19 +1,21 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
-
+import GoogleAuth from '../GoogleAuth'
 import {
   AppContainer,
-  FormContainer,
-  LoginLogo,
-  InputContainer,
-  LoginButton,
-  SubmitError,
-  InputLabel,
-  UserInput,
-  CheckboxContainer,
   Checkbox,
+  CheckboxContainer,
+  FormContainer,
+  InputContainer,
+  InputLabel,
+  LoginButton,
+  LoginLogo,
+  OrContainer,
+  OrText,
   ShowPassword,
+  SubmitError,
+  UserInput,
 } from './styledComponents'
 
 class LoginForm extends Component {
@@ -125,6 +127,11 @@ class LoginForm extends Component {
           <InputContainer>{this.renderPasswordField()}</InputContainer>
           <LoginButton type="submit">Login</LoginButton>
           {showSubmitError && <SubmitError>*{errorMsg}</SubmitError>}
+
+          <OrContainer>
+            <OrText>or</OrText>
+            <GoogleAuth />
+          </OrContainer>
         </FormContainer>
       </AppContainer>
     )

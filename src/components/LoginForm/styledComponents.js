@@ -78,3 +78,19 @@ export const ShowPassword = styled.label`
   font-size: 15px;
   color: #1e293b;
 `
+
+export const OrContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 15px;
+  gap: 10px;
+`
+
+export const OrText = styled.p`
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: #475569;
+  margin: 0;
+`

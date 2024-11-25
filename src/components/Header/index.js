@@ -1,26 +1,25 @@
-import {withRouter} from 'react-router-dom'
+import {BsBrightnessHigh, BsMoon} from 'react-icons/bs'
+
 import Cookies from 'js-cookie'
-import Popup from 'reactjs-popup'
-
-import {BsMoon, BsBrightnessHigh} from 'react-icons/bs'
 import {FiLogOut} from 'react-icons/fi'
-
+import Popup from 'reactjs-popup'
+import {googleLogout} from '@react-oauth/google'
+import {withRouter} from 'react-router-dom'
 import ThemeAndVideoContext from '../../context/ThemeAndVideoContext'
-
 import {
-  LogoLink,
-  NavbarHeader,
-  HeaderLogo,
   ActionsContainer,
-  ThemeButton,
-  LogoutIconButton,
-  LogoutButton,
-  ProfileImage,
-  ModalContainer,
+  ButtonsContainer,
   CloseButton,
   ConfirmButton,
+  HeaderLogo,
+  LogoLink,
+  LogoutButton,
+  LogoutIconButton,
+  ModalContainer,
   ModalDesc,
-  ButtonsContainer,
+  NavbarHeader,
+  ProfileImage,
+  ThemeButton,
 } from './styledComponents'
 
 const Header = props => (
@@ -37,8 +36,15 @@ const Header = props => (
       const onClickLogout = () => {
         const {history} = props
         Cookies.remove('jwt_token')
+        if (Cookies.get('user_info')) {
+          Cookies.remove('user_info')
+          googleLogout()
+        }
         history.replace('/login')
       }
+
+      const userInfo = Cookies.get('user_info')
+      const googleUser = userInfo ? JSON.parse(userInfo) : null
 
       return (
         <NavbarHeader bgColor={bgColor}>
@@ -64,10 +70,14 @@ const Header = props => (
                 <BsMoon size={25} />
               )}
             </ThemeButton>
-            <ProfileImage
-              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
-              alt="profile"
-            />
+            {googleUser ? (
+              <ProfileImage src={googleUser.picture} alt="profile" />
+            ) : (
+              <ProfileImage
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
+                alt="profile"
+              />
+            )}
             <Popup
               modal
               trigger={
