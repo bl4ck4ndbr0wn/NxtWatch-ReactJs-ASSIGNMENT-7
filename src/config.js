@@ -1,6 +1,6 @@
 const config = {
   googleClientId:
-    '851277813113-ate49jqt9h7q0rs9s7lahbtk41td6obi.apps.googleusercontent.com',
+    process.env.REACT_APP_GOOGLE_CLIENT_ID,
 }
 
 export default config
